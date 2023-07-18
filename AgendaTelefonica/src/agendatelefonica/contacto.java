@@ -19,4 +19,13 @@ public class contacto {
     public String verDomicilio() {
         return this.domicilio;
     }
+    public void SetNumero(String numero_de_telefono){
+        this.numero_de_telefono = numero_de_telefono;
+    }
+     public void SetNombre(String nombre){
+        this.nombre = nombre;
+    }
+      public void SetDomicilio(String domicilio){
+        this.domicilio = domicilio;
+    }
 }
