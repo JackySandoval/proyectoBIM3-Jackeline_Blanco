@@ -4,19 +4,22 @@ import java.util.Scanner;
 
 public class AgendaTelefonica {
 
-    static contacto misContactos[] = new contacto[10];
+    static contacto misContactos[] = new contacto[15];
     static int contador = 0;
+    static int j;
+    static String nombrein, domicilioin;
 
     public static void main(String[] args) {
         int op = 0;
         Scanner entrada = new Scanner(System.in);
-        while (op != 4) {
+        while (op != 5) {
             System.out.println("----------------------------");
             System.out.println("MENU: ");
             System.out.println("1. Guardar contacto");
             System.out.println("2. Ver contactos");
             System.out.println("3. Buscar contacto");
-            System.out.println("4. Salir");
+            System.out.println("4. Actualizar datos del contacto");
+            System.out.println("5. Salir");
             System.out.println("----------------------------");
             System.out.println("ingrese un numero de opcion:");
             System.out.println("-----------------------------");
@@ -33,14 +36,27 @@ public class AgendaTelefonica {
                 Scanner teclado = new Scanner(System.in);
                 String nombre = teclado.nextLine();
                 System.out.println(verContacto(nombre));
+            } else if (op == 4) {
+                System.out.println("--Actualizar Contacto--");
+                System.out.println("Ingrese el numero del contacto que desea modificar: ");
+                Scanner entrada1 = new Scanner(System.in);
+                String numero = entrada1.nextLine();
+                System.out.println(ActualizarContacto(numero));
+                System.out.println("nombre: " + misContactos[j].verNombre());
+                System.out.println("numero: " + misContactos[j].verNumero());
+                System.out.println("domicilio: " + misContactos[j].verDomicilio());
+                System.out.println("#####################################################");
+            } else if (op == 5) {
+                System.out.println("--Programa finalizado--");
+                break;
             } else {
                 System.out.println("Opcion incorrecta");
-            }
+        }
         }
     }
 
     static public void crearContacto() {
-        if (contador >= 10) {
+        if (contador >= 15) {
             System.out.println("---------------------------------------");
             System.out.println("---------La memoria esta llena---------");
             System.out.println("---------------------------------------");
@@ -84,5 +100,29 @@ public class AgendaTelefonica {
             return "Contacto no encontrado";
         }
 
+    }
+    static public String ActualizarContacto(String numero) {
+        Scanner teclado1=new Scanner (System.in);
+        int posicion = -1;
+        for (int i = 0; i < 15; i++) {
+            if (misContactos [i] != null) {
+                if (misContactos[i].verNumero().equals(numero)) {
+                    posicion = i;
+                    break;
+                }
+            }
+        }
+        if (posicion != -1) {
+            System.out.println("----------------------------------------------");
+        System.out.println("-Ingrese el nombre");
+        nombrein = teclado1.nextLine();
+        System.out.println("-Ingrese el domicilio");
+        domicilioin = teclado1.nextLine();
+        misContactos[j].SetNombre(nombrein);
+        misContactos[j].SetDomicilio(domicilioin);
+        return "-----los datos de tu contacto han sido actualizado-----";
+        } else {
+            return "Contacto no encontrado";
+        }
     }
 }
