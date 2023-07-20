@@ -10,13 +10,14 @@ public class AgendaTelefonica {
     public static void main(String[] args) {
         int op = 0;
         Scanner entrada = new Scanner(System.in);
-        while (op != 4) {
+        while (op != 5) {
             System.out.println("----------------------------");
             System.out.println("MENU: ");
             System.out.println("1. Guardar contacto");
             System.out.println("2. Ver contactos");
             System.out.println("3. Buscar contacto");
-            System.out.println("4. Salir");
+            System.out.println("4. Modificar contacto");
+            System.out.println("5. Salir");
             System.out.println("----------------------------");
             System.out.println("ingrese un numero de opcion:");
             System.out.println("-----------------------------");
