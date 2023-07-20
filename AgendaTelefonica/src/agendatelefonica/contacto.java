@@ -9,14 +9,20 @@ public class contacto {
         this.nombre = nombre;
         this.domicilio = domicilio;
     }
-    
+
     public String verNombre() {
         return this.nombre;
     }
     public String verNumero() {
-        return this.numero_de_telefono;
+       return this.numero_de_telefono;
     }
     public String verDomicilio() {
-        return this.domicilio;
+       return this.domicilio;
+    }
+    public void SetNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public void SetDomicilio(String domicilio) {
+        this.domicilio = domicilio;
     }
 }
